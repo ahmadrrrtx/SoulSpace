@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
+import { NavigationProgress } from "../components/NavigationProgress";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SoulSpace • Free Anonymous Peer Support",
-  description: "A safe, private space for emotional support. Talk anonymously, find tools, and connect with people who understand.",
+  title: "SoulSpace • Elite Anonymous Peer Support & Journal",
+  description: "A pristine, private space for emotional support. Talk anonymously, find elite tools, and connect with caring peers.",
   icons: {
     icon: "/favicon.png",
     apple: "/logo.png",
@@ -31,7 +32,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-[#f8fbf9] text-[#064e3b] antialiased selection:bg-emerald-100 selection:text-emerald-900">
+      <body className="min-h-full flex flex-col bg-[#f5fbf7] text-[#064e3b] antialiased selection:bg-emerald-200 selection:text-emerald-950">
+        <NavigationProgress />
         {children}
         <Toaster position="top-center" richColors closeButton />
       </body>

@@ -5,10 +5,10 @@ import { ArrowLeft } from 'lucide-react';
 
 export default function LowMoodArticle() {
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-4xl mx-auto px-6 py-5">
-          <Link href="/blog" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/blog" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back to Journal
           </Link>
         </div>
@@ -16,12 +16,12 @@ export default function LowMoodArticle() {
 
       <article className="max-w-3xl mx-auto px-6 py-12">
         <div className="mb-8">
-          <span className="px-4 py-1.5 rounded-full bg-white/10 text-sm">Low Mood</span>
+          <span className="px-4 py-1.5 rounded-full bg-[#e6f4ea] text-[#064e3b] text-sm">Low Mood</span>
           <h1 className="text-6xl font-semibold tracking-tighter mt-6 mb-6">When You Feel Low</h1>
-          <p className="text-2xl text-[#94a3b8]">Gentle, evidence-based ways to support yourself</p>
+          <p className="text-2xl text-[#047857]">Gentle, evidence-based ways to support yourself</p>
         </div>
 
-        <div className="prose prose-invert max-w-none text-lg">
+        <div className="prose prose-emerald max-w-none text-lg">
           <p>Everyone experiences periods of low mood. According to the <strong>World Health Organization</strong>, depression is the leading cause of disability worldwide. However, not every low period is clinical depression.</p>
 
           <h2 className="text-3xl font-semibold mt-12 mb-4">Understanding the Difference</h2>
@@ -39,12 +39,12 @@ export default function LowMoodArticle() {
           <h2 className="text-3xl font-semibold mt-12 mb-4">The “One Thing” Rule</h2>
           <p>When everything feels overwhelming, choose <strong>one small thing</strong> you can do today. This reduces decision fatigue and builds momentum.</p>
 
-          <div className="card p-8 my-10 bg-[#12151b]">
+          <div className="card p-8 my-10 bg-[#f0fdf4]">
             <p><strong>Remember:</strong> Feeling low doesn’t mean you’re broken. It means you’re human. Many people recover and find meaning again.</p>
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/10 text-sm text-[#64748b]">
+        <div className="mt-16 pt-8 border-t border-[#dcfce7] text-sm text-[#475569]">
           Sources: World Health Organization, National Institute of Mental Health, Positive Psychology research
         </div>
       </article>

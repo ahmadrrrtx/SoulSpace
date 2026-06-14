@@ -106,10 +106,10 @@ export default function RecoveryToolkit() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-5xl mx-auto px-6 py-5 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <div className="font-semibold text-xl flex items-center gap-2">
@@ -122,7 +122,7 @@ export default function RecoveryToolkit() {
         <div className="mb-8 flex items-center justify-between">
           <div>
             <h1 className="text-5xl font-semibold tracking-tight mb-2">Your emotional first aid</h1>
-            <p className="text-xl text-[#94a3b8]">Things that comfort you, saved for when you need them most.</p>
+            <p className="text-xl text-[#047857]">Things that comfort you, saved for when you need them most.</p>
           </div>
           <button 
             onClick={() => setShowAddModal(true)}
@@ -145,7 +145,7 @@ export default function RecoveryToolkit() {
                   className={`px-5 py-2 rounded-full text-sm flex items-center gap-2 transition-all ${
                     activeCategory === cat.id 
                       ? 'bg-[#4ade80] text-[#0a0c10]' 
-                      : 'bg-white/5 hover:bg-white/10'
+                      : 'bg-white shadow-xs border border-[#dcfce7] hover:bg-[#e6f4ea] text-[#064e3b]'
                   }`}
                 >
                   <cat.icon className="w-4 h-4" />
@@ -158,14 +158,14 @@ export default function RecoveryToolkit() {
         {filteredItems.length === 0 ? (
           <div className="card p-12 text-center">
             <Heart className="w-12 h-12 mx-auto text-[#4ade80] mb-4" />
-            <p className="text-xl text-[#94a3b8]">Nothing saved yet. Add things that bring you comfort.</p>
+            <p className="text-xl text-[#047857]">Nothing saved yet. Add things that bring you comfort.</p>
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredItems.map((item) => (
               <div key={item.id} className="card p-6 group relative">
                 <div className="flex justify-between items-start mb-3">
-                  <div className="text-sm text-[#64748b] capitalize">{item.type}</div>
+                  <div className="text-sm text-[#475569] capitalize">{item.type}</div>
                   <button 
                     onClick={() => deleteItem(item.id)}
                     className="opacity-0 group-hover:opacity-100 text-[#f87171] transition-all"

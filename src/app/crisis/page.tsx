@@ -8,10 +8,10 @@ export default function CrisisScreen() {
   const [showBreathing, setShowBreathing] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-4xl mx-auto px-6 py-5 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back to SoulSpace
           </Link>
         </div>
@@ -23,7 +23,7 @@ export default function CrisisScreen() {
             <Heart className="w-10 h-10 text-[#f87171]" />
           </div>
           <h1 className="text-5xl font-semibold tracking-tight mb-4">You are not alone.</h1>
-          <p className="text-xl text-[#94a3b8]">Right now, the most important thing is that you reach out for help.</p>
+          <p className="text-xl text-[#047857]">Right now, the most important thing is that you reach out for help.</p>
         </div>
 
         {/* Immediate Actions */}
@@ -37,7 +37,7 @@ export default function CrisisScreen() {
             >
               <div>
                 <div className="font-semibold">🇺🇸 Call or Text 988</div>
-                <div className="text-sm text-[#94a3b8]">Suicide & Crisis Lifeline (US)</div>
+                <div className="text-sm text-[#047857]">Suicide & Crisis Lifeline (US)</div>
               </div>
               <Phone className="w-6 h-6 text-[#f87171]" />
             </a>
@@ -45,22 +45,22 @@ export default function CrisisScreen() {
             <a 
               href="https://www.iasp.info/" 
               target="_blank"
-              className="flex items-center justify-between p-5 bg-white/5 hover:bg-white/10 rounded-2xl border border-white/10 transition-all"
+              className="flex items-center justify-between p-5 bg-white shadow-xs border border-[#dcfce7] hover:bg-[#e6f4ea] text-[#064e3b] rounded-2xl border border-[#dcfce7] transition-all"
             >
               <div>
                 <div className="font-semibold">🌍 Find Local Help</div>
-                <div className="text-sm text-[#94a3b8]">International resources (IASP)</div>
+                <div className="text-sm text-[#047857]">International resources (IASP)</div>
               </div>
               <Phone className="w-6 h-6" />
             </a>
 
             <a 
               href="tel:1122" 
-              className="flex items-center justify-between p-5 bg-white/5 hover:bg-white/10 rounded-2xl border border-white/10 transition-all"
+              className="flex items-center justify-between p-5 bg-white shadow-xs border border-[#dcfce7] hover:bg-[#e6f4ea] text-[#064e3b] rounded-2xl border border-[#dcfce7] transition-all"
             >
               <div>
                 <div className="font-semibold">🇵🇰 Emergency (Pakistan)</div>
-                <div className="text-sm text-[#94a3b8]">Call 1122</div>
+                <div className="text-sm text-[#047857]">Call 1122</div>
               </div>
               <Phone className="w-6 h-6" />
             </a>
@@ -70,7 +70,7 @@ export default function CrisisScreen() {
         {/* Your Safety Plan */}
         <div className="card p-8 mb-8">
           <h2 className="font-semibold text-2xl mb-4">Your Safety Plan</h2>
-          <p className="text-[#94a3b8] mb-6">If you created one, open it now. It can help.</p>
+          <p className="text-[#047857] mb-6">If you created one, open it now. It can help.</p>
           <Link href="/safety-plan" className="btn btn-primary w-full">
             Open My Safety Plan
           </Link>
@@ -85,7 +85,7 @@ export default function CrisisScreen() {
             <Wind className="w-8 h-8 text-[#4ade80]" />
             <div>
               <div className="font-semibold">Do 4-7-8 Breathing</div>
-              <div className="text-sm text-[#64748b]">Calm your body right now</div>
+              <div className="text-sm text-[#475569]">Calm your body right now</div>
             </div>
           </button>
 
@@ -93,7 +93,7 @@ export default function CrisisScreen() {
             <Heart className="w-8 h-8 text-[#4ade80]" />
             <div>
               <div className="font-semibold">More Coping Tools</div>
-              <div className="text-sm text-[#64748b]">Grounding, journaling, sleep</div>
+              <div className="text-sm text-[#475569]">Grounding, journaling, sleep</div>
             </div>
           </Link>
         </div>
@@ -102,13 +102,13 @@ export default function CrisisScreen() {
         <div className="card p-8 text-center">
           <Users className="w-10 h-10 mx-auto mb-4 text-[#60a5fa]" />
           <h3 className="font-semibold text-xl mb-2">Talk to someone</h3>
-          <p className="text-[#94a3b8] mb-6">You don&apos;t have to go through this alone.</p>
+          <p className="text-[#047857] mb-6">You don&apos;t have to go through this alone.</p>
           <Link href="/chat" className="btn btn-primary px-10">
             Start Anonymous Chat
           </Link>
         </div>
 
-        <div className="text-center mt-10 text-sm text-[#64748b]">
+        <div className="text-center mt-10 text-sm text-[#475569]">
           You matter. Help is available 24/7.
         </div>
       </div>
@@ -119,7 +119,7 @@ export default function CrisisScreen() {
           <div className="text-center max-w-xs">
             <div className="text-6xl mb-8">🌬️</div>
             <div className="text-2xl font-semibold mb-4">4-7-8 Breathing</div>
-            <p className="text-[#94a3b8] mb-8">Inhale 4s → Hold 7s → Exhale 8s</p>
+            <p className="text-[#047857] mb-8">Inhale 4s → Hold 7s → Exhale 8s</p>
             <button 
               onClick={() => setShowBreathing(false)}
               className="btn btn-secondary"

@@ -31,10 +31,10 @@ export default function LocalHelpFinder() {
   const [selectedCountry, setSelectedCountry] = useState<'global' | 'pakistan' | 'usa' | 'india'>('global');
 
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-5xl mx-auto px-6 py-5 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <div className="font-semibold text-xl flex items-center gap-2">
@@ -46,7 +46,7 @@ export default function LocalHelpFinder() {
       <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="mb-10">
           <h1 className="text-5xl font-semibold tracking-tight mb-3">Find real help near you</h1>
-          <p className="text-xl text-[#94a3b8]">Hotlines, services, and support in your region.</p>
+          <p className="text-xl text-[#047857]">Hotlines, services, and support in your region.</p>
         </div>
 
         {/* Country Selector */}
@@ -63,7 +63,7 @@ export default function LocalHelpFinder() {
               className={`px-6 py-2 rounded-full text-sm flex items-center gap-2 transition-all ${
                 selectedCountry === country.key 
                   ? 'bg-[#4ade80] text-[#0a0c10]' 
-                  : 'bg-white/5 hover:bg-white/10'
+                  : 'bg-white shadow-xs border border-[#dcfce7] hover:bg-[#e6f4ea] text-[#064e3b]'
               }`}
             >
               <country.icon className="w-4 h-4" />
@@ -83,7 +83,7 @@ export default function LocalHelpFinder() {
             >
               <div>
                 <div className="font-semibold text-lg">{resource.name}</div>
-                <div className="text-[#94a3b8]">{resource.desc}</div>
+                <div className="text-[#047857]">{resource.desc}</div>
               </div>
               <div className="text-[#4ade80] group-hover:translate-x-1 transition-transform">
                 <Phone className="w-5 h-5" />
@@ -92,7 +92,7 @@ export default function LocalHelpFinder() {
           ))}
         </div>
 
-        <div className="mt-10 text-center text-sm text-[#64748b]">
+        <div className="mt-10 text-center text-sm text-[#475569]">
           These are starting points. If you&apos;re in crisis, please use our SOS Mode or Crisis page.
         </div>
       </div>

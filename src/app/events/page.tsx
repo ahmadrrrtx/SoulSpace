@@ -59,10 +59,10 @@ export default function RoomEvents() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-5xl mx-auto px-6 py-5 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <div className="font-semibold text-xl flex items-center gap-2">
@@ -74,7 +74,7 @@ export default function RoomEvents() {
       <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="mb-10">
           <h1 className="text-5xl font-semibold tracking-tight mb-3">Scheduled Support Spaces</h1>
-          <p className="text-xl text-[#94a3b8]">Join others in themed group sessions.</p>
+          <p className="text-xl text-[#047857]">Join others in themed group sessions.</p>
         </div>
 
         <div className="space-y-4">
@@ -84,7 +84,7 @@ export default function RoomEvents() {
               <div key={event.id} className="card p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                 <div>
                   <div className="font-semibold text-2xl mb-1">{event.title}</div>
-                  <div className="flex items-center gap-4 text-sm text-[#94a3b8] mb-3">
+                  <div className="flex items-center gap-4 text-sm text-[#047857] mb-3">
                     <div className="flex items-center gap-1.5">
                       <Calendar className="w-4 h-4" /> {event.day}
                     </div>
@@ -109,7 +109,7 @@ export default function RoomEvents() {
           })}
         </div>
 
-        <div className="mt-10 text-center text-sm text-[#64748b]">
+        <div className="mt-10 text-center text-sm text-[#475569]">
           These are community-led spaces. A moderator will be present in each session.
         </div>
       </div>

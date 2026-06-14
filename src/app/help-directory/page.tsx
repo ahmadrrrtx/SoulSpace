@@ -156,10 +156,10 @@ export default function HelpDirectory() {
   });
 
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-6xl mx-auto px-6 py-5 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <div className="font-semibold text-xl flex items-center gap-2">
@@ -171,14 +171,14 @@ export default function HelpDirectory() {
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="mb-10">
           <h1 className="text-5xl font-semibold tracking-tight mb-3">Free Mental Health Support Worldwide</h1>
-          <p className="text-xl text-[#94a3b8]">Find helplines, organizations, and support services by country.</p>
+          <p className="text-xl text-[#047857]">Find helplines, organizations, and support services by country.</p>
         </div>
 
         {/* Filters */}
         <div className="flex flex-col md:flex-row gap-4 mb-8">
           <div className="flex-1">
             <div className="relative">
-              <Search className="absolute left-4 top-4 text-[#64748b]" />
+              <Search className="absolute left-4 top-4 text-[#475569]" />
               <input
                 type="text"
                 placeholder="Search by name or keyword..."
@@ -218,9 +218,9 @@ export default function HelpDirectory() {
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="font-semibold text-xl">{resource.name}</span>
-                    <span className="px-3 py-0.5 text-xs rounded-full bg-white/10">{resource.type}</span>
+                    <span className="px-3 py-0.5 text-xs rounded-full bg-[#e6f4ea] text-[#064e3b]">{resource.type}</span>
                   </div>
-                  <p className="text-[#94a3b8] mb-2">{resource.description}</p>
+                  <p className="text-[#047857] mb-2">{resource.description}</p>
                   <div className="flex items-center gap-2 text-sm text-[#4ade80]">
                     <Phone className="w-4 h-4" /> {resource.contact}
                   </div>
@@ -239,12 +239,12 @@ export default function HelpDirectory() {
             ))
           ) : (
             <div className="card p-12 text-center">
-              <p className="text-[#94a3b8]">No resources found matching your filters.</p>
+              <p className="text-[#047857]">No resources found matching your filters.</p>
             </div>
           )}
         </div>
 
-        <div className="mt-12 text-center text-sm text-[#64748b]">
+        <div className="mt-12 text-center text-sm text-[#475569]">
           This directory is a starting point. Always verify current contact information before use.
         </div>
       </div>

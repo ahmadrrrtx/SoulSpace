@@ -32,10 +32,10 @@ const resources = [
 
 export default function Resources() {
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-5xl mx-auto px-6 py-5 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <div className="font-semibold text-xl">SoulSpace Resources</div>
@@ -45,7 +45,7 @@ export default function Resources() {
       <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="mb-10">
           <h1 className="text-5xl font-semibold tracking-tight mb-3">You are not alone.</h1>
-          <p className="text-xl text-[#94a3b8]">Here are some tools and resources that might help right now.</p>
+          <p className="text-xl text-[#047857]">Here are some tools and resources that might help right now.</p>
         </div>
 
         <div className="space-y-12">
@@ -60,7 +60,7 @@ export default function Resources() {
                 {section.items.map((item, i) => (
                   <div key={i} className="card p-6 hover:border-[#4ade80]/30 transition-colors">
                     <div className="font-semibold text-lg mb-1">{item.title}</div>
-                    <div className="text-[#94a3b8] text-sm mb-4">{item.desc}</div>
+                    <div className="text-[#047857] text-sm mb-4">{item.desc}</div>
                     
                     {'link' in item && item.link && item.link.startsWith('http') && (
                       <a 
@@ -87,7 +87,7 @@ export default function Resources() {
           ))}
         </div>
 
-        <div className="mt-16 pt-10 border-t border-white/10 text-center text-sm text-[#64748b]">
+        <div className="mt-16 pt-10 border-t border-[#dcfce7] text-center text-sm text-[#475569]">
           These resources are here to support you. SoulSpace is peer support only — not a replacement for professional help.
         </div>
       </div>

@@ -46,10 +46,10 @@ export default function WhatHelped() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-4xl mx-auto px-6 py-5 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <div className="font-semibold text-xl">What Helped Me Before</div>
@@ -59,7 +59,7 @@ export default function WhatHelped() {
       <div className="max-w-2xl mx-auto px-6 py-10">
         <div className="mb-8">
           <h1 className="text-4xl font-semibold tracking-tight mb-3">Remember what worked</h1>
-          <p className="text-[#94a3b8]">Save the things that helped you in the past so you can come back to them easily.</p>
+          <p className="text-[#047857]">Save the things that helped you in the past so you can come back to them easily.</p>
         </div>
 
         {/* Add New */}
@@ -96,7 +96,7 @@ export default function WhatHelped() {
           </h3>
 
           {savedItems.length === 0 ? (
-            <div className="card p-8 text-center text-[#94a3b8]">
+            <div className="card p-8 text-center text-[#047857]">
               Nothing saved yet. Add things that helped you when you were feeling better.
             </div>
           ) : (
@@ -105,7 +105,7 @@ export default function WhatHelped() {
                 <div key={item.id} className="card p-5 flex items-center justify-between group">
                   <div>
                     <div className="font-medium">{item.text}</div>
-                    <div className="text-xs text-[#64748b] mt-1">{item.category}</div>
+                    <div className="text-xs text-[#475569] mt-1">{item.category}</div>
                   </div>
                   <button 
                     onClick={() => deleteItem(item.id)}
@@ -119,7 +119,7 @@ export default function WhatHelped() {
           )}
         </div>
 
-        <div className="mt-8 text-xs text-[#64748b] text-center">
+        <div className="mt-8 text-xs text-[#475569] text-center">
           This stays private on your device. Come back to this list when you need a reminder.
         </div>
       </div>

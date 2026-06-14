@@ -41,10 +41,10 @@ const articles = [
 
 export default function Blog() {
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-6xl mx-auto px-6 py-5 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back to SoulSpace
           </Link>
           <div className="font-semibold text-xl flex items-center gap-2">
@@ -59,7 +59,7 @@ export default function Blog() {
             <Image src="/blog-hero.png" alt="Mental Health Articles" width={380} height={240} className="rounded-2xl" />
           </div>
           <h1 className="text-6xl font-semibold tracking-tighter mb-4">Understanding Yourself Better</h1>
-          <p className="text-2xl text-[#94a3b8] max-w-2xl mx-auto">
+          <p className="text-2xl text-[#047857] max-w-2xl mx-auto">
             Evidence-based articles to help you make sense of your feelings and build real skills.
           </p>
         </div>
@@ -90,10 +90,10 @@ export default function Blog() {
                   <h3 className="text-3xl font-semibold tracking-tight mb-4 group-hover:text-[#4ade80] transition-colors">
                     {article.title}
                   </h3>
-                  <p className="text-[#94a3b8] text-lg flex-1">{article.excerpt}</p>
+                  <p className="text-[#047857] text-lg flex-1">{article.excerpt}</p>
                   
-                  <div className="flex items-center justify-between mt-8 pt-6 border-t border-white/10 text-sm">
-                    <span className="text-[#64748b]">{article.readTime} read</span>
+                  <div className="flex items-center justify-between mt-8 pt-6 border-t border-[#dcfce7] text-sm">
+                    <span className="text-[#475569]">{article.readTime} read</span>
                     <span className="text-[#4ade80] group-hover:underline">Read article →</span>
                   </div>
                 </div>
@@ -102,7 +102,7 @@ export default function Blog() {
           ))}
         </div>
 
-        <div className="mt-16 text-center text-[#64748b] text-sm">
+        <div className="mt-16 text-center text-[#475569] text-sm">
           All articles are based on research from NIMH, WHO, APA, and evidence-based psychological practices.
         </div>
       </div>

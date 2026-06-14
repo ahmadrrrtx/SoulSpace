@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-import { Send, X, AlertTriangle, Heart, Mic, MicOff } from 'lucide-react';
+import { Send, X, AlertTriangle, Heart, Mic, MicOff, Shield, User } from 'lucide-react';
 import { format } from 'date-fns';
 import { detectCrisis, crisisResources } from '../lib/crisisDetection';
 import { pusherClient } from '../lib/pusher';
@@ -13,6 +13,7 @@ interface Message {
   isMine: boolean;
   timestamp: Date;
   type: 'text' | 'voice';
+  senderId?: string;
 }
 
 interface ChatInterfacePusherProps {
@@ -37,6 +38,7 @@ export function ChatInterfacePusher({
   const [showCrisisModal, setShowCrisisModal] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
   const [voiceEnabled, setVoiceEnabled] = useState(false);
+  const [mySenderId] = useState(() => crypto.randomUUID());
 
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
@@ -72,18 +74,21 @@ export function ChatInterfacePusher({
 
   // Connect to Pusher
   useEffect(() => {
-    // Subscribe to private channel
     const channel = pusherClient.subscribe(channelName);
     channelRef.current = channel;
 
     channel.bind('new-message', (data: any) => {
+      // Prevent echoing our own message
+      if (data.senderId === mySenderId) return;
+
       const newMessage: Message = {
         id: Date.now().toString(),
         text: data.text,
         audio: data.audio,
-        isMine: data.isMine || false,
-        timestamp: new Date(data.timestamp),
+        isMine: false,
+        timestamp: new Date(data.timestamp || Date.now()),
         type: data.type || 'text',
+        senderId: data.senderId,
       };
       setMessages(prev => [...prev, newMessage]);
     });
@@ -96,16 +101,16 @@ export function ChatInterfacePusher({
       }, 1200);
     });
 
-    // Simulate matching after 3 seconds
+    // Simulate partner online
     const matchTimer = setTimeout(() => {
       setPartnerOnline(true);
-    }, 3000);
+    }, 2500);
 
     return () => {
       clearTimeout(matchTimer);
       pusherClient.unsubscribe(channelName);
     };
-  }, [sessionId]);
+  }, [sessionId, mySenderId]);
 
   // Auto scroll
   useEffect(() => {
@@ -136,6 +141,7 @@ export function ChatInterfacePusher({
       isMine: true,
       timestamp: new Date(),
       type: 'text',
+      senderId: mySenderId,
     };
 
     setMessages(prev => [...prev, newMessage]);
@@ -149,6 +155,7 @@ export function ChatInterfacePusher({
           channel: channelName,
           text,
           type: 'text',
+          senderId: mySenderId,
         }),
       });
     } catch (error) {
@@ -183,6 +190,7 @@ export function ChatInterfacePusher({
             isMine: true,
             timestamp: new Date(),
             type: 'voice',
+            senderId: mySenderId,
           };
           setMessages(prev => [...prev, newMessage]);
 
@@ -195,6 +203,7 @@ export function ChatInterfacePusher({
                 channel: channelName,
                 audio: base64Audio,
                 type: 'voice',
+                senderId: mySenderId,
               }),
             });
           } catch (error) {
@@ -229,19 +238,20 @@ export function ChatInterfacePusher({
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0c10] flex flex-col">
+    <div className="min-h-screen bg-[#f8fbf9] flex flex-col font-sans">
       {/* Header */}
-      <div className="border-b border-white/10 bg-[#12151b]">
+      <div className="border-b border-[#dcfce7] bg-white shadow-2xs">
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 bg-[#4ade80] rounded-2xl flex items-center justify-center">
-                <Heart className="w-5 h-5 text-[#0a0c10]" />
+              <div className="w-10 h-10 bg-emerald-600 rounded-2xl flex items-center justify-center text-white shadow-xs">
+                <Heart className="w-5 h-5 fill-white" />
               </div>
               <div>
-                <div className="font-semibold">SoulSpace Chat</div>
-                <div className="text-xs text-[#4ade80]">
-                  {partnerOnline ? 'Connected anonymously' : 'Partner left'} • {
+                <div className="font-extrabold text-[#064e3b] text-base">SoulSpace 1-on-1 Peer Chat</div>
+                <div className="text-xs text-emerald-700 font-medium flex items-center gap-1.5 mt-0.5">
+                  <span className={`w-2 h-2 rounded-full ${partnerOnline ? 'bg-emerald-500 animate-pulse' : 'bg-slate-400'}`} />
+                  {partnerOnline ? 'Connected anonymously' : 'Partner disconnected'} • {
                     matchingMode === 'topic' ? topicLabels[topic || ''] : moodLabels[mood || '']
                   }
                 </div>
@@ -252,14 +262,14 @@ export function ChatInterfacePusher({
           <div className="flex items-center gap-3">
             <button 
               onClick={() => setVoiceEnabled(!voiceEnabled)}
-              className={`flex items-center gap-2 text-sm px-4 py-2 rounded-full border transition-colors ${voiceEnabled ? 'border-[#4ade80] text-[#4ade80]' : 'border-white/10'}`}
+              className={`flex items-center gap-2 text-sm px-4 py-2 rounded-full border transition-colors font-semibold ${voiceEnabled ? 'border-emerald-600 bg-emerald-50 text-emerald-700' : 'border-[#dcfce7] bg-white text-[#064e3b]'}`}
             >
               <Mic className="w-4 h-4" /> Voice
             </button>
             
             <button 
               onClick={() => setShowEndModal(true)}
-              className="flex items-center gap-2 text-sm px-5 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
+              className="flex items-center gap-2 text-sm px-5 py-2 rounded-full bg-rose-50 text-rose-600 hover:bg-rose-100 border border-rose-200 transition-colors font-bold shadow-xs"
             >
               <X className="w-4 h-4" /> End Chat
             </button>
@@ -269,37 +279,41 @@ export function ChatInterfacePusher({
 
       {/* Chat Area */}
       <div className="flex-1 overflow-hidden flex flex-col max-w-4xl mx-auto w-full">
-        <div className="flex-1 overflow-y-auto px-6 py-8 space-y-6">
+        <div className="flex-1 overflow-y-auto px-6 py-8 space-y-5">
           {messages.length === 0 && (
-            <div className="flex flex-col items-center justify-center h-full text-center pt-20">
-              <div className="text-[#4ade80] mb-4">
-                <Heart className="w-12 h-12 mx-auto" />
+            <div className="flex flex-col items-center justify-center h-full text-center pt-24 animate-fade-in">
+              <div className="w-20 h-20 bg-emerald-50 border border-emerald-200 rounded-3xl flex items-center justify-center mb-6 shadow-xs">
+                <Heart className="w-10 h-10 text-emerald-600 fill-emerald-600 animate-pulse" />
               </div>
-              <p className="text-xl font-medium">You&apos;re now connected.</p>
-              <p className="text-[#94a3b8] mt-2">Be kind. Listen. Share what feels right.</p>
+              <p className="text-2xl font-extrabold text-[#064e3b]">You&apos;re now connected.</p>
+              <p className="text-emerald-700 font-medium mt-2 max-w-md mx-auto">
+                Be kind. Listen without judgment. Feel free to share whatever is on your mind.
+              </p>
             </div>
           )}
 
           {messages.map((msg, index) => (
-            <div key={index} className={`flex ${msg.isMine ? 'justify-end' : 'justify-start'}`}>
+            <div key={index} className={`flex ${msg.isMine ? 'justify-end' : 'justify-start'} animate-fade-in`}>
               {msg.type === 'text' && msg.text && (
-                <div className={`chat-bubble ${msg.isMine ? 'chat-bubble-user' : 'chat-bubble-other'}`}>
-                  <div>{msg.text}</div>
-                  <div className={`text-[10px] mt-1.5 ${msg.isMine ? 'text-[#0a0c10]/60' : 'text-[#64748b]'}`}>
+                <div className={`chat-bubble ${msg.isMine ? 'chat-bubble-user font-medium shadow-md' : 'chat-bubble-other bg-white shadow-xs border border-[#dcfce7]'}`}>
+                  <div className="text-base">{msg.text}</div>
+                  <div className={`text-[11px] mt-2 font-mono flex items-center justify-end ${msg.isMine ? 'text-emerald-100 font-medium' : 'text-slate-400'}`}>
                     {format(msg.timestamp, 'HH:mm')}
                   </div>
                 </div>
               )}
 
               {msg.type === 'voice' && msg.audio && (
-                <div className={`flex items-center gap-3 px-5 py-4 rounded-3xl ${msg.isMine ? 'bg-[#4ade80] text-[#0a0c10]' : 'bg-[#1a1f28] border border-white/10'}`}>
-                  <button onClick={() => playAudio(msg.audio!)} className="flex items-center gap-2">
-                    <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
-                      <Mic className="w-4 h-4" />
+                <div className={`flex items-center gap-3 px-6 py-4 rounded-3xl shadow-sm ${msg.isMine ? 'bg-emerald-600 text-white shadow-md' : 'bg-white border border-[#dcfce7] text-[#064e3b]'}`}>
+                  <button onClick={() => playAudio(msg.audio!)} className="flex items-center gap-3 group">
+                    <div className={`w-11 h-11 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-105 ${msg.isMine ? 'bg-white/20 text-white' : 'bg-emerald-50 text-emerald-600 border border-emerald-200'}`}>
+                      <Mic className="w-5 h-5 fill-current" />
                     </div>
-                    <span className="text-sm font-medium">Voice message</span>
+                    <span className="text-sm font-bold">Play Voice Note</span>
                   </button>
-                  <div className="text-[10px] opacity-60">{format(msg.timestamp, 'HH:mm')}</div>
+                  <div className={`text-xs font-mono ml-4 ${msg.isMine ? 'text-emerald-100' : 'text-slate-400'}`}>
+                    {format(msg.timestamp, 'HH:mm')}
+                  </div>
                 </div>
               )}
             </div>
@@ -309,14 +323,14 @@ export function ChatInterfacePusher({
         </div>
 
         {/* Input Area */}
-        <div className="border-t border-white/10 p-6 bg-[#12151b]">
-          <form onSubmit={sendMessage} className="flex gap-3">
+        <div className="border-t border-[#dcfce7] p-6 bg-white shadow-lg">
+          <form onSubmit={sendMessage} className="flex gap-3 items-center">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Type your message..."
-              className="input flex-1 text-lg"
+              placeholder={partnerOnline ? "Type a kind message..." : "Partner left. Please end chat..."}
+              className="input flex-1 text-base bg-[#f8fbf9] shadow-inner font-medium py-3.5 px-5 rounded-2xl"
               disabled={!partnerOnline}
             />
             
@@ -324,39 +338,69 @@ export function ChatInterfacePusher({
               <button
                 type="button"
                 onClick={isRecording ? stopRecording : startRecording}
-                className={`btn flex items-center justify-center w-14 ${isRecording ? 'bg-red-500 hover:bg-red-600' : 'bg-white/10 hover:bg-white/20'}`}
+                className={`btn flex items-center justify-center w-14 h-14 rounded-2xl shadow-xs transition-all ${isRecording ? 'bg-rose-500 hover:bg-rose-600 text-white animate-bounce' : 'bg-emerald-50 border border-emerald-200 text-emerald-700 hover:bg-emerald-100'}`}
+                title={isRecording ? "Click to stop and send" : "Click to record voice note"}
               >
-                {isRecording ? <MicOff className="w-5 h-5" /> : <Mic className="w-5 h-5" />}
+                {isRecording ? <MicOff className="w-6 h-6" /> : <Mic className="w-6 h-6" />}
               </button>
             )}
 
             <button 
               type="submit" 
               disabled={!input.trim() || !partnerOnline}
-              className="btn btn-primary px-8 disabled:opacity-40 disabled:cursor-not-allowed"
+              className="btn btn-primary h-14 px-8 rounded-2xl font-bold shadow-md hover:shadow-lg disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2"
             >
+              <span>Send</span>
               <Send className="w-5 h-5" />
             </button>
           </form>
-          <p className="text-center text-[10px] text-[#64748b] mt-3">
-            This chat will disappear when you leave • Messages are not stored
-          </p>
+          <div className="flex items-center justify-center gap-2 text-center text-xs text-emerald-700 font-medium mt-3">
+            <Shield className="w-3.5 h-3.5 text-emerald-500" />
+            <span>Messages are purely ephemeral and automatically deleted when session ends</span>
+          </div>
         </div>
       </div>
 
       {/* End Chat Modal */}
       {showEndModal && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-6">
-          <div className="card max-w-sm w-full p-8 text-center">
-            <div className="mx-auto w-16 h-16 bg-[#f87171]/10 rounded-3xl flex items-center justify-center mb-6">
-              <AlertTriangle className="w-8 h-8 text-[#f87171]" />
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-6 animate-fade-in">
+          <div className="card max-w-sm w-full p-8 text-center bg-white shadow-2xl border-rose-200">
+            <div className="mx-auto w-16 h-16 bg-rose-50 border border-rose-200 rounded-3xl flex items-center justify-center mb-6 shadow-xs">
+              <AlertTriangle className="w-8 h-8 text-rose-600 animate-pulse" />
             </div>
-            <h3 className="text-2xl font-semibold mb-3">End this conversation?</h3>
-            <p className="text-[#94a3b8]">All messages will be deleted immediately.</p>
+            <h3 className="text-2xl font-extrabold mb-3 text-[#064e3b]">End this conversation?</h3>
+            <p className="text-emerald-700 font-medium text-sm mb-8">All ephemeral chat messages will be wiped instantly.</p>
             
-            <div className="flex gap-3 mt-8">
-              <button onClick={() => setShowEndModal(false)} className="btn btn-secondary flex-1">Keep chatting</button>
-              <button onClick={endChat} className="btn flex-1 bg-[#f87171] hover:bg-[#ef4444] text-white">End chat</button>
+            <div className="flex gap-3">
+              <button onClick={() => setShowEndModal(false)} className="btn btn-secondary flex-1 font-bold py-3.5">Keep Chatting</button>
+              <button onClick={endChat} className="btn flex-1 bg-rose-500 hover:bg-rose-600 text-white font-bold py-3.5 shadow-md">Yes, Leave</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Crisis Detected Modal */}
+      {showCrisisModal && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-6 animate-fade-in">
+          <div className="card max-w-md w-full p-8 text-center bg-white shadow-2xl border-rose-200">
+            <div className="mx-auto w-16 h-16 bg-rose-50 border border-rose-200 rounded-3xl flex items-center justify-center mb-6 shadow-xs">
+              <AlertTriangle className="w-8 h-8 text-rose-600" />
+            </div>
+            <h3 className="text-2xl font-extrabold mb-3 text-[#064e3b]">{crisisResources.medium.title}</h3>
+            <p className="text-emerald-700 font-medium text-sm mb-6">{crisisResources.medium.message}</p>
+            
+            <div className="space-y-3 text-left mb-8">
+              {crisisResources.medium.actions.map((act, idx) => (
+                <div key={idx} className="p-3.5 bg-[#f8fbf9] border border-emerald-100 rounded-2xl text-sm font-semibold text-[#064e3b]">
+                  {act}
+                </div>
+              ))}
+            </div>
+
+            <div className="flex gap-3">
+              <button onClick={() => setShowCrisisModal(false)} className="btn btn-primary w-full font-bold py-3.5">
+                I Understand
+              </button>
             </div>
           </div>
         </div>

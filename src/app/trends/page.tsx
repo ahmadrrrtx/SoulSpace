@@ -54,10 +54,10 @@ export default function Trends() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-4xl mx-auto px-6 py-5 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <div className="font-semibold text-xl">Your Trends &amp; Insights</div>
@@ -68,7 +68,7 @@ export default function Trends() {
         <h1 className="text-4xl font-semibold tracking-tight mb-8">Last 14 check-ins</h1>
 
         {checkins.length === 0 ? (
-          <div className="card p-8 text-center text-[#94a3b8]">
+          <div className="card p-8 text-center text-[#047857]">
             No check-ins yet. Start tracking from the Daily Check-in page.
           </div>
         ) : (
@@ -77,9 +77,9 @@ export default function Trends() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
               {['mood', 'energy', 'sleep', 'stress'].map((key) => (
                 <div key={key} className="card p-6 text-center">
-                  <div className="text-sm text-[#64748b] capitalize">{key}</div>
+                  <div className="text-sm text-[#475569] capitalize">{key}</div>
                   <div className="text-4xl font-semibold mt-2 text-[#4ade80]">{avg(key as keyof CheckIn)}</div>
-                  <div className="text-xs text-[#64748b] mt-1">Average</div>
+                  <div className="text-xs text-[#475569] mt-1">Average</div>
                 </div>
               ))}
             </div>
@@ -87,7 +87,7 @@ export default function Trends() {
             {/* Pattern Insights */}
             <div className="card p-8 mb-8">
               <h3 className="font-semibold text-xl mb-6">What we noticed</h3>
-              <div className="space-y-4 text-[#94a3b8]">
+              <div className="space-y-4 text-[#047857]">
                 {insights.map((insight, i) => (
                   <div key={i} className="flex gap-3">
                     <div className="text-[#4ade80] mt-1">•</div>
@@ -95,7 +95,7 @@ export default function Trends() {
                   </div>
                 ))}
               </div>
-              <div className="text-xs text-[#64748b] mt-6">These are gentle observations from your data.</div>
+              <div className="text-xs text-[#475569] mt-6">These are gentle observations from your data.</div>
             </div>
 
             {/* Recent Entries */}
@@ -103,9 +103,9 @@ export default function Trends() {
               <h3 className="font-semibold mb-6">Recent Entries</h3>
               <div className="space-y-4 text-sm">
                 {checkins.slice().reverse().map((entry, i) => (
-                  <div key={i} className="flex justify-between border-b border-white/10 pb-4 last:border-none last:pb-0">
+                  <div key={i} className="flex justify-between border-b border-[#dcfce7] pb-4 last:border-none last:pb-0">
                     <div>{new Date(entry.date).toLocaleDateString()}</div>
-                    <div className="flex gap-6 text-[#94a3b8]">
+                    <div className="flex gap-6 text-[#047857]">
                       <span>Mood {entry.mood}</span>
                       <span>Energy {entry.energy}</span>
                       <span>Sleep {entry.sleep}</span>

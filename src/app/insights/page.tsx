@@ -92,10 +92,10 @@ export default function EmotionalGPS() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-4xl mx-auto px-6 py-5 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <div className="font-semibold text-xl flex items-center gap-2">
@@ -108,7 +108,7 @@ export default function EmotionalGPS() {
         <div className="mb-10 flex flex-col md:flex-row items-center gap-8">
           <div>
             <h1 className="text-5xl font-semibold tracking-tight mb-3">Your Emotional GPS</h1>
-            <p className="text-xl text-[#94a3b8]">Understanding your patterns, gently.</p>
+            <p className="text-xl text-[#047857]">Understanding your patterns, gently.</p>
           </div>
           <Image src="/insights-illustration.png" alt="Emotional Insights" width={280} height={200} className="rounded-2xl" />
         </div>
@@ -117,7 +117,7 @@ export default function EmotionalGPS() {
           <div className="card p-10 text-center">
             <Calendar className="w-12 h-12 mx-auto text-[#4ade80] mb-4" />
             <h3 className="text-2xl font-semibold mb-2">Not enough data yet</h3>
-            <p className="text-[#94a3b8] mb-6">Check in for at least 4 days to see your personal insights.</p>
+            <p className="text-[#047857] mb-6">Check in for at least 4 days to see your personal insights.</p>
             <Link href="/check-in" className="btn btn-primary">Start Daily Check-in</Link>
           </div>
         ) : (
@@ -125,19 +125,19 @@ export default function EmotionalGPS() {
             {/* Summary Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
               <div className="card p-6 text-center">
-                <div className="text-sm text-[#64748b]">Recent Average Mood</div>
+                <div className="text-sm text-[#475569]">Recent Average Mood</div>
                 <div className="text-5xl font-semibold mt-2 text-[#4ade80]">
                   {(checkins.slice(-7).reduce((sum, c) => sum + c.mood, 0) / Math.min(7, checkins.length)).toFixed(1)}
                 </div>
               </div>
               <div className="card p-6 text-center">
-                <div className="text-sm text-[#64748b]">Recent Average Stress</div>
+                <div className="text-sm text-[#475569]">Recent Average Stress</div>
                 <div className="text-5xl font-semibold mt-2 text-[#fbbf24]">
                   {(checkins.slice(-7).reduce((sum, c) => sum + c.stress, 0) / Math.min(7, checkins.length)).toFixed(1)}
                 </div>
               </div>
               <div className="card p-6 text-center">
-                <div className="text-sm text-[#64748b]">Recent Average Sleep</div>
+                <div className="text-sm text-[#475569]">Recent Average Sleep</div>
                 <div className="text-5xl font-semibold mt-2 text-[#60a5fa]">
                   {(checkins.slice(-7).reduce((sum, c) => sum + c.sleep, 0) / Math.min(7, checkins.length)).toFixed(1)}
                 </div>
@@ -153,14 +153,14 @@ export default function EmotionalGPS() {
 
               <div className="space-y-5">
                 {insights.map((insight, index) => (
-                  <div key={index} className="flex gap-4 p-5 bg-white/5 rounded-2xl">
+                  <div key={index} className="flex gap-4 p-5 bg-white shadow-xs border border-[#dcfce7] rounded-2xl">
                     <div className="text-[#4ade80] mt-1">•</div>
                     <div className="text-lg text-[#e2e8f0]">{insight}</div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-8 pt-6 border-t border-white/10 text-sm text-[#64748b]">
+              <div className="mt-8 pt-6 border-t border-[#dcfce7] text-sm text-[#475569]">
                 These insights are generated from your own check-ins. They&apos;re here to help you understand yourself better.
               </div>
             </div>

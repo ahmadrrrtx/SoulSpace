@@ -39,10 +39,10 @@ export default function SelfHelp() {
   const [activeTool, setActiveTool] = useState<string | null>(null);
 
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-5xl mx-auto px-6 py-5 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <div className="font-semibold text-xl">Guided Self-Help Tools</div>
@@ -51,7 +51,7 @@ export default function SelfHelp() {
 
       <div className="max-w-4xl mx-auto px-6 py-12">
         <h1 className="text-5xl font-semibold tracking-tight mb-3">Small tools for hard moments</h1>
-        <p className="text-xl text-[#94a3b8] mb-10">Evidence-based techniques you can use right now.</p>
+        <p className="text-xl text-[#047857] mb-10">Evidence-based techniques you can use right now.</p>
 
         <div className="grid md:grid-cols-2 gap-6">
           {tools.map((tool) => (
@@ -61,13 +61,13 @@ export default function SelfHelp() {
               className="card p-8 cursor-pointer hover:border-[#4ade80]/40 transition-all"
             >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-white shadow-xs border border-[#dcfce7] rounded-2xl flex items-center justify-center flex-shrink-0">
                   <tool.icon className="w-6 h-6 text-[#4ade80]" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-2xl mb-1">{tool.title}</h3>
-                  <p className="text-[#94a3b8] mb-4">{tool.desc}</p>
-                  <div className="text-sm text-[#64748b]">Tap to try</div>
+                  <p className="text-[#047857] mb-4">{tool.desc}</p>
+                  <div className="text-sm text-[#475569]">Tap to try</div>
                 </div>
               </div>
             </div>
@@ -86,7 +86,7 @@ export default function SelfHelp() {
                       <tool.icon className="w-8 h-8 text-[#4ade80]" />
                     </div>
                     <h3 className="text-3xl font-semibold mb-4">{tool.title}</h3>
-                    <p className="text-lg text-[#94a3b8] leading-relaxed mb-8">{tool.content}</p>
+                    <p className="text-lg text-[#047857] leading-relaxed mb-8">{tool.content}</p>
                   </>
                 );
               })()}

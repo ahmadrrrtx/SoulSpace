@@ -78,10 +78,10 @@ export default function SupportStreaks() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-4xl mx-auto px-6 py-5 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <div className="font-semibold text-xl flex items-center gap-2">
@@ -96,14 +96,14 @@ export default function SupportStreaks() {
             <Flame className="w-10 h-10 text-[#fbbf24]" />
           </div>
           <h1 className="text-5xl font-semibold tracking-tight mb-3">Your gentle progress</h1>
-          <p className="text-xl text-[#94a3b8]">Showing up for yourself, one day at a time.</p>
+          <p className="text-xl text-[#047857]">Showing up for yourself, one day at a time.</p>
         </div>
 
         {/* Current Streak */}
         <div className="card p-10 text-center mb-8">
-          <div className="text-sm text-[#64748b] mb-2">CURRENT STREAK</div>
+          <div className="text-sm text-[#475569] mb-2">CURRENT STREAK</div>
           <div className="text-8xl font-semibold text-[#fbbf24] tabular-nums">{streakData.currentStreak}</div>
-          <div className="text-xl text-[#94a3b8] mt-2">days</div>
+          <div className="text-xl text-[#047857] mt-2">days</div>
         </div>
 
         {/* Stats */}
@@ -111,12 +111,12 @@ export default function SupportStreaks() {
           <div className="card p-6 text-center">
             <Award className="w-8 h-8 mx-auto text-[#4ade80] mb-3" />
             <div className="text-4xl font-semibold">{streakData.longestStreak}</div>
-            <div className="text-sm text-[#64748b] mt-1">Longest Streak</div>
+            <div className="text-sm text-[#475569] mt-1">Longest Streak</div>
           </div>
           <div className="card p-6 text-center">
             <Calendar className="w-8 h-8 mx-auto text-[#60a5fa] mb-3" />
             <div className="text-4xl font-semibold">{streakData.totalCheckIns}</div>
-            <div className="text-sm text-[#64748b] mt-1">Total Check-ins</div>
+            <div className="text-sm text-[#475569] mt-1">Total Check-ins</div>
           </div>
           <div className="card p-6 text-center">
             <Flame className="w-8 h-8 mx-auto text-[#fbbf24] mb-3" />
@@ -142,7 +142,7 @@ export default function SupportStreaks() {
           </div>
         )}
 
-        <div className="mt-10 text-center text-sm text-[#64748b]">
+        <div className="mt-10 text-center text-sm text-[#475569]">
           These streaks are here to celebrate your effort — not pressure you.<br />
           Missing a day is completely okay.
         </div>

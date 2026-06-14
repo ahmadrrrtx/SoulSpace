@@ -41,10 +41,10 @@ export default function SafetyPlan() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-4xl mx-auto px-6 py-5 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <div className="font-semibold text-xl">My Safety Plan</div>
@@ -59,7 +59,7 @@ export default function SafetyPlan() {
             </div>
             <h1 className="text-4xl font-semibold tracking-tight">Your Personal Safety Plan</h1>
           </div>
-          <p className="text-[#94a3b8] text-lg">
+          <p className="text-[#047857] text-lg">
             This stays private on your device only. Fill it out when you&apos;re feeling okay — it can help during hard moments.
           </p>
         </div>
@@ -68,7 +68,7 @@ export default function SafetyPlan() {
           {/* Warning Signs */}
           <div className="card p-8">
             <h3 className="font-semibold text-xl mb-2">Warning Signs</h3>
-            <p className="text-sm text-[#64748b] mb-4">What thoughts, feelings, or situations tell you things are getting worse?</p>
+            <p className="text-sm text-[#475569] mb-4">What thoughts, feelings, or situations tell you things are getting worse?</p>
             <textarea
               value={plan.warningSigns}
               onChange={(e) => updateField('warningSigns', e.target.value)}
@@ -80,7 +80,7 @@ export default function SafetyPlan() {
           {/* Coping Steps */}
           <div className="card p-8">
             <h3 className="font-semibold text-xl mb-2">Things I Can Do to Cope</h3>
-            <p className="text-sm text-[#64748b] mb-4">What helps you feel a little better? (breathing, music, walk, etc.)</p>
+            <p className="text-sm text-[#475569] mb-4">What helps you feel a little better? (breathing, music, walk, etc.)</p>
             <textarea
               value={plan.copingSteps}
               onChange={(e) => updateField('copingSteps', e.target.value)}
@@ -92,7 +92,7 @@ export default function SafetyPlan() {
           {/* People to Contact */}
           <div className="card p-8">
             <h3 className="font-semibold text-xl mb-2">People I Can Reach Out To</h3>
-            <p className="text-sm text-[#64748b] mb-4">Friends or family who support you (name + how to contact)</p>
+            <p className="text-sm text-[#475569] mb-4">Friends or family who support you (name + how to contact)</p>
             <textarea
               value={plan.peopleToContact}
               onChange={(e) => updateField('peopleToContact', e.target.value)}
@@ -104,7 +104,7 @@ export default function SafetyPlan() {
           {/* Professional Help */}
           <div className="card p-8">
             <h3 className="font-semibold text-xl mb-2">Professional Help</h3>
-            <p className="text-sm text-[#64748b] mb-4">Therapist, counselor, doctor, or helpline you trust</p>
+            <p className="text-sm text-[#475569] mb-4">Therapist, counselor, doctor, or helpline you trust</p>
             <textarea
               value={plan.professionalHelp}
               onChange={(e) => updateField('professionalHelp', e.target.value)}
@@ -114,11 +114,11 @@ export default function SafetyPlan() {
           </div>
 
           {/* Crisis Numbers */}
-          <div className="card p-8 bg-[#12151b] border-[#f87171]/30">
+          <div className="card p-8 bg-[#f0fdf4] border-[#f87171]/30">
             <h3 className="font-semibold text-xl mb-2 flex items-center gap-2">
               <Phone className="w-5 h-5" /> Crisis Resources (One-tap)
             </h3>
-            <div className="text-sm text-[#94a3b8] mb-4">Add your local emergency numbers here</div>
+            <div className="text-sm text-[#047857] mb-4">Add your local emergency numbers here</div>
             <textarea
               value={plan.crisisNumbers}
               onChange={(e) => updateField('crisisNumbers', e.target.value)}
@@ -143,7 +143,7 @@ export default function SafetyPlan() {
           </div>
         )}
 
-        <div className="mt-12 text-center text-xs text-[#64748b]">
+        <div className="mt-12 text-center text-xs text-[#475569]">
           This plan is stored only on your phone/browser. We never see it.
         </div>
       </div>

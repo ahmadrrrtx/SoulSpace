@@ -55,10 +55,10 @@ export default function CheckIn() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-4xl mx-auto px-6 py-5 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <div className="font-semibold text-xl">Daily Check-in</div>
@@ -69,7 +69,7 @@ export default function CheckIn() {
         {!showActionPlan ? (
           <>
             <h1 className="text-4xl font-semibold tracking-tight mb-2">How are you today?</h1>
-            <p className="text-[#94a3b8] mb-10">This takes 15 seconds. Your answers stay on your device.</p>
+            <p className="text-[#047857] mb-10">This takes 15 seconds. Your answers stay on your device.</p>
 
             <div className="space-y-8">
               {[
@@ -91,7 +91,7 @@ export default function CheckIn() {
                     onChange={(e) => item.set(Number(e.target.value))}
                     className="w-full accent-[#4ade80]"
                   />
-                  <div className="flex justify-between text-xs text-[#64748b] mt-1">
+                  <div className="flex justify-between text-xs text-[#475569] mt-1">
                     <div>{item.low}</div>
                     <div>{item.high}</div>
                   </div>
@@ -124,7 +124,7 @@ export default function CheckIn() {
                 <Heart className="w-8 h-8 text-[#4ade80]" />
               </div>
               <h2 className="text-3xl font-semibold mb-2">Here&apos;s what might help today</h2>
-              <p className="text-[#94a3b8]">Small steps, based on how you&apos;re feeling.</p>
+              <p className="text-[#047857]">Small steps, based on how you&apos;re feeling.</p>
             </div>
 
             <div className="space-y-4 mb-10">
@@ -149,7 +149,7 @@ export default function CheckIn() {
               </Link>
             </div>
 
-            <div className="text-center mt-6 text-xs text-[#64748b]">
+            <div className="text-center mt-6 text-xs text-[#475569]">
               These are gentle suggestions. You know yourself best.
             </div>
           </div>

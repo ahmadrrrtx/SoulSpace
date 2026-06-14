@@ -5,10 +5,10 @@ import { ArrowLeft } from 'lucide-react';
 
 export default function AnxietyArticle() {
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-4xl mx-auto px-6 py-5">
-          <Link href="/blog" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/blog" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back to Journal
           </Link>
         </div>
@@ -16,12 +16,12 @@ export default function AnxietyArticle() {
 
       <article className="max-w-3xl mx-auto px-6 py-12">
         <div className="mb-8">
-          <span className="px-4 py-1.5 rounded-full bg-white/10 text-sm">Anxiety</span>
+          <span className="px-4 py-1.5 rounded-full bg-[#e6f4ea] text-[#064e3b] text-sm">Anxiety</span>
           <h1 className="text-6xl font-semibold tracking-tighter mt-6 mb-6">Understanding Anxiety</h1>
-          <p className="text-2xl text-[#94a3b8]">What it is and how to manage it effectively</p>
+          <p className="text-2xl text-[#047857]">What it is and how to manage it effectively</p>
         </div>
 
-        <div className="prose prose-invert max-w-none text-lg">
+        <div className="prose prose-emerald max-w-none text-lg">
           <p>Anxiety is one of the most common mental health experiences worldwide. According to the <strong>World Health Organization</strong>, anxiety disorders affect nearly 4% of the global population.</p>
 
           <h2 className="text-3xl font-semibold mt-12 mb-4">What Anxiety Actually Is</h2>
@@ -38,7 +38,7 @@ export default function AnxietyArticle() {
 
           <h2 className="text-3xl font-semibold mt-12 mb-4">Grounding When Anxiety Feels Overwhelming</h2>
           <p>The <strong>5-4-3-2-1 technique</strong> is recommended by many therapists:</p>
-          <div className="card p-8 my-8 bg-[#12151b]">
+          <div className="card p-8 my-8 bg-[#f0fdf4]">
             <p>Name 5 things you can see<br />
             Name 4 things you can touch<br />
             Name 3 things you can hear<br />
@@ -50,7 +50,7 @@ export default function AnxietyArticle() {
           <p>If anxiety is affecting your sleep, work, or relationships consistently, consider reaching out to a mental health professional. Early support makes a significant difference.</p>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/10 text-sm text-[#64748b]">
+        <div className="mt-16 pt-8 border-t border-[#dcfce7] text-sm text-[#475569]">
           Sources: World Health Organization, National Institute of Mental Health, Cognitive Behavioral Therapy research
         </div>
       </article>

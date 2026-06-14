@@ -89,10 +89,10 @@ export default function ListenerProgram() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-4xl mx-auto px-6 py-5 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <div className="font-semibold text-xl flex items-center gap-2">
@@ -107,12 +107,12 @@ export default function ListenerProgram() {
         <div className="text-center mb-10">
           <Image src="/listener-illustration.png" alt="Listener Program" width={320} height={220} className="mx-auto mb-6 rounded-2xl" />
           <h1 className="text-5xl font-semibold tracking-tight mb-4">Become a Verified Listener</h1>
-          <p className="text-xl text-[#94a3b8]">Help others in their hardest moments. Learn how to listen safely and effectively.</p>
+          <p className="text-xl text-[#047857]">Help others in their hardest moments. Learn how to listen safely and effectively.</p>
         </div>
 
             <div className="card p-8 mb-8">
               <h3 className="font-semibold text-xl mb-4">What you&apos;ll learn:</h3>
-              <ul className="space-y-3 text-[#94a3b8]">
+              <ul className="space-y-3 text-[#047857]">
                 <li>• How to set healthy boundaries</li>
                 <li>• Active listening techniques</li>
                 <li>• Recognizing crisis signs</li>
@@ -129,12 +129,12 @@ export default function ListenerProgram() {
         {step === 'training' && (
           <div>
             <div className="mb-6">
-              <div className="text-sm text-[#64748b]">Module {currentModule + 1} of {trainingModules.length}</div>
+              <div className="text-sm text-[#475569]">Module {currentModule + 1} of {trainingModules.length}</div>
             </div>
 
             <div className="card p-10">
               <h2 className="text-3xl font-semibold mb-6">{trainingModules[currentModule].title}</h2>
-              <p className="text-lg text-[#94a3b8] leading-relaxed mb-10">{trainingModules[currentModule].content}</p>
+              <p className="text-lg text-[#047857] leading-relaxed mb-10">{trainingModules[currentModule].content}</p>
 
               <button onClick={handleNextModule} className="btn btn-primary w-full">
                 {currentModule === trainingModules.length - 1 ? "Start Quiz" : "Next Module"}
@@ -146,7 +146,7 @@ export default function ListenerProgram() {
         {step === 'quiz' && (
           <div>
             <div className="mb-6 text-center">
-              <div className="text-sm text-[#64748b]">Question {quizIndex + 1} of {quizQuestions.length}</div>
+              <div className="text-sm text-[#475569]">Question {quizIndex + 1} of {quizQuestions.length}</div>
             </div>
 
             <div className="card p-10">
@@ -163,7 +163,7 @@ export default function ListenerProgram() {
                         ? index === quizQuestions[quizIndex].correct 
                           ? 'border-[#4ade80] bg-[#4ade80]/10' 
                           : 'border-[#f87171] bg-[#f87171]/10'
-                        : 'border-white/10 hover:bg-white/5'
+                        : 'border-[#dcfce7] hover:bg-white shadow-xs border border-[#dcfce7]'
                     }`}
                   >
                     {option}
@@ -191,10 +191,10 @@ export default function ListenerProgram() {
                     <span className="font-medium">Verified Listener Badge Earned</span>
                   </div>
                 </div>
-                <p className="text-[#94a3b8] mb-8">In the future, you will be prioritized when people need support.</p>
+                <p className="text-[#047857] mb-8">In the future, you will be prioritized when people need support.</p>
               </>
             ) : (
-              <p className="text-xl text-[#94a3b8] mb-8">You scored {score} out of {quizQuestions.length}. You can retake the training.</p>
+              <p className="text-xl text-[#047857] mb-8">You scored {score} out of {quizQuestions.length}. You can retake the training.</p>
             )}
 
             <button onClick={reset} className="btn btn-primary px-10">

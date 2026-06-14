@@ -5,10 +5,10 @@ import { ArrowLeft } from 'lucide-react';
 
 export default function SleepArticle() {
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-4xl mx-auto px-6 py-5">
-          <Link href="/blog" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/blog" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back to Journal
           </Link>
         </div>
@@ -16,12 +16,12 @@ export default function SleepArticle() {
 
       <article className="max-w-3xl mx-auto px-6 py-12">
         <div className="mb-8">
-          <span className="px-4 py-1.5 rounded-full bg-white/10 text-sm">Sleep</span>
+          <span className="px-4 py-1.5 rounded-full bg-[#e6f4ea] text-[#064e3b] text-sm">Sleep</span>
           <h1 className="text-6xl font-semibold tracking-tighter mt-6 mb-6">How to Improve Your Sleep</h1>
-          <p className="text-2xl text-[#94a3b8]">Evidence-based strategies for better rest</p>
+          <p className="text-2xl text-[#047857]">Evidence-based strategies for better rest</p>
         </div>
 
-        <div className="prose prose-invert max-w-none text-lg">
+        <div className="prose prose-emerald max-w-none text-lg">
           <p>Poor sleep affects mood, focus, and emotional regulation. According to the <strong>National Sleep Foundation</strong>, consistent sleep hygiene can dramatically improve mental health.</p>
 
           <h2 className="text-3xl font-semibold mt-12 mb-4">The 10-3-2-1-0 Rule</h2>
@@ -37,7 +37,7 @@ export default function SleepArticle() {
           <h2 className="text-3xl font-semibold mt-12 mb-4">Wind-Down Routine</h2>
           <p>Research shows that a consistent pre-sleep routine signals the brain that it’s time to rest.</p>
 
-          <div className="card p-8 my-10 bg-[#12151b]">
+          <div className="card p-8 my-10 bg-[#f0fdf4]">
             <p>Try this 20-minute routine:</p>
             <p>Dim lights → Light stretching or breathing → Journal 3 things → No phone in bed</p>
           </div>
@@ -46,7 +46,7 @@ export default function SleepArticle() {
           <p>If you consistently struggle with falling or staying asleep, consider speaking with a doctor. Chronic insomnia is treatable.</p>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/10 text-sm text-[#64748b]">
+        <div className="mt-16 pt-8 border-t border-[#dcfce7] text-sm text-[#475569]">
           Sources: National Sleep Foundation, Sleep Research Society
         </div>
       </article>

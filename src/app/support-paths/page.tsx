@@ -67,10 +67,10 @@ export default function SupportPaths() {
   const [selectedPath, setSelectedPath] = useState<string | null>(null);
 
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-5xl mx-auto px-6 py-5 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <div className="font-semibold text-xl">Personalized Support Paths</div>
@@ -80,7 +80,7 @@ export default function SupportPaths() {
       <div className="max-w-5xl mx-auto px-6 py-12">
         <div className="mb-10">
           <h1 className="text-5xl font-semibold tracking-tight mb-3">What are you struggling with right now?</h1>
-          <p className="text-xl text-[#94a3b8]">Choose a path and get targeted, gentle tools.</p>
+          <p className="text-xl text-[#047857]">Choose a path and get targeted, gentle tools.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -99,10 +99,10 @@ export default function SupportPaths() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-2xl mb-1 group-hover:text-[#4ade80] transition-colors">{path.title}</h3>
-                  <p className="text-[#94a3b8]">{path.description}</p>
+                  <p className="text-[#047857]">{path.description}</p>
                 </div>
               </div>
-              <div className="text-sm text-[#64748b]">Tap to see tools →</div>
+              <div className="text-sm text-[#475569]">Tap to see tools →</div>
             </div>
           ))}
         </div>
@@ -124,11 +124,11 @@ export default function SupportPaths() {
                       </div>
                       <div>
                         <h2 className="text-3xl font-semibold">{path.title}</h2>
-                        <p className="text-[#94a3b8]">{path.description}</p>
+                        <p className="text-[#047857]">{path.description}</p>
                       </div>
                     </div>
 
-                    <div className="bg-white/5 rounded-2xl p-6 mb-6">
+                    <div className="bg-white shadow-xs border border-[#dcfce7] rounded-2xl p-6 mb-6">
                       <div className="font-medium mb-4 text-[#4ade80]">Try these tools:</div>
                       <ul className="space-y-3 text-sm">
                         {path.tools.map((tool, i) => (
@@ -140,7 +140,7 @@ export default function SupportPaths() {
                       </ul>
                     </div>
 
-                    <div className="bg-[#12151b] border border-white/10 rounded-2xl p-5 text-sm mb-8">
+                    <div className="bg-[#f0fdf4] border border-[#dcfce7] rounded-2xl p-5 text-sm mb-8">
                       💡 {path.tip}
                     </div>
 

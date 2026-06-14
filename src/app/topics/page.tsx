@@ -34,10 +34,10 @@ export default function TopicSelection() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white">
-      <div className="border-b border-white/10">
+    <div className="min-h-screen bg-[#f8fbf9] text-[#064e3b]">
+      <div className="border-b border-[#dcfce7]">
         <div className="max-w-5xl mx-auto px-6 py-5 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-[#94a3b8] hover:text-white">
+          <Link href="/" className="flex items-center gap-2 text-[#047857] hover:text-[#059669]">
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <div className="font-semibold text-xl">Topic-Based Matching</div>
@@ -50,7 +50,7 @@ export default function TopicSelection() {
             <Users className="w-8 h-8 text-[#4ade80]" />
           </div>
           <h1 className="text-5xl font-semibold tracking-tight mb-4">Find someone who gets it</h1>
-          <p className="text-xl text-[#94a3b8]">Choose what you&apos;re going through. We&apos;ll match you with someone who understands.</p>
+          <p className="text-xl text-[#047857]">Choose what you&apos;re going through. We&apos;ll match you with someone who understands.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -78,7 +78,7 @@ export default function TopicSelection() {
           </button>
         </div>
 
-        <p className="text-center text-sm text-[#64748b] mt-6">
+        <p className="text-center text-sm text-[#475569] mt-6">
           Matching prefers people with similar experiences
         </p>
       </div>

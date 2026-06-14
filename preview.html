@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoulSpace • Preview</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        :root {
+            --bg: #0a0c10;
+            --surface: #12151b;
+            --primary: #4ade80;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Inter', system_ui, sans-serif;
+            background: var(--bg);
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .nav {
+            background: rgba(10, 12, 16, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 28px;
+            letter-spacing: -1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            font-size: 15px;
+        }
+        
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: white;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: #0a0c10;
+        }
+        
+        .btn-primary:hover {
+            background: #22c55e;
+            transform: translateY(-1px);
+        }
+        
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 72px;
+            line-height: 1.05;
+            font-weight: 700;
+            letter-spacing: -4px;
+            margin: 0 0 24px;
+        }
+        
+        .hero p {
+            font-size: 22px;
+            color: #94a3b8;
+            max-width: 520px;
+            margin: 0 auto 48px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin-bottom: 16px;
+        }
+        
+        .card {
+            background: var(--surface);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 32px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(74, 222, 128, 0.3);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        
+        .feature-card {
+            padding: 32px;
+        }
+        
+        .nav-active {
+            color: white;
+            font-weight: 600;
+        }
+        
+        .preview-label {
+            font-size: 13px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-inner">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 42px; height: 42px; background: #4ade80; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                        <span style="color: #0a0c10; font-weight: 800; font-size: 22px;">S</span>
+                    </div>
+                    <span class="logo">SoulSpace</span>
+                </div>
+                
+                <div class="nav-links">
+                    <a href="#how">How it works</a>
+                    <a href="#features">Features</a>
+                    <a href="#safety">Safety</a>
+                </div>
+                
+                <a href="#" class="btn btn-primary">Start Chat</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <div style="margin-bottom: 24px;">
+                <img src="logo.png" alt="SoulSpace" style="height: 64px; width: auto;">
+            </div>
+            
+            <h1>Talk to someone<br>who gets it.</h1>
+            <p>Connect instantly with another person for a private, anonymous conversation.</p>
+            
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="#" class="btn btn-primary" style="padding: 16px 40px; font-size: 18px;">Start Random Chat</a>
+                <a href="#" class="btn" style="background: #1a1f28; color: white; border: 1px solid #2a303d; padding: 16px 36px; font-size: 18px;">Browse Resources</a>
+            </div>
+            
+            <p style="margin-top: 24px; font-size: 14px; color: #64748b;">No signup • No data stored • Completely free</p>
+        </div>
+    </div>
+
+    <!-- Trust Bar -->
+    <div style="border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 24px 0;">
+        <div class="container" style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 10px; color: #94a3b8; font-size: 15px;">
+                <span>🛡️</span> 100% Anonymous
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; color: #94a3b8; font-size: 15px;">
+                <span>⏱️</span> Ephemeral chats
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; color: #94a3b8; font-size: 15px;">
+                <span>👥</span> Real people listening
+            </div>
+        </div>
+    </div>
+
+    <!-- How it Works -->
+    <div id="how" class="section container">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2 class="section-title">How it works</h2>
+            <p style="color: #94a3b8; font-size: 20px;">Simple. Private. Supportive.</p>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <div style="width: 52px; height: 52px; background: rgba(255,255,255,0.06); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                    <span style="font-size: 28px;">👥</span>
+                </div>
+                <h3 style="font-size: 24px; margin: 0 0 12px;">Join the queue</h3>
+                <p style="color: #94a3b8; margin: 0;">Click start and wait a few seconds to be matched with someone.</p>
+            </div>
+            
+            <div class="card">
+                <div style="width: 52px; height: 52px; background: rgba(255,255,255,0.06); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                    <span style="font-size: 28px;">💬</span>
+                </div>
+                <h3 style="font-size: 24px; margin: 0 0 12px;">Have a real talk</h3>
+                <p style="color: #94a3b8; margin: 0;">Chat anonymously. Be kind. Listen without judgment.</p>
+            </div>
+            
+            <div class="card">
+                <div style="width: 52px; height: 52px; background: rgba(255,255,255,0.06); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                    <span style="font-size: 28px;">⏱️</span>
+                </div>
+                <h3 style="font-size: 24px; margin: 0 0 12px;">Chat ends naturally</h3>
+                <p style="color: #94a3b8; margin: 0;">When either person leaves, the conversation is gone forever.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <div id="features" class="section container">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2 class="section-title">Powerful Features</h2>
+        </div>
+        
+        <div class="grid">
+            <!-- SOS Mode -->
+            <div class="card feature-card">
+                <div style="margin-bottom: 20px;">
+                    <span style="background: #f87171; color: white; padding: 4px 14px; border-radius: 999px; font-size: 13px; font-weight: 600;">CRISIS SUPPORT</span>
+                </div>
+                <h3 style="font-size: 26px; margin: 0 0 12px;">SOS Mode</h3>
+                <p style="color: #94a3b8; margin: 0 0 20px;">When you're spiraling, get guided step-by-step through panic, crisis, or overwhelming emotions.</p>
+                <div style="font-size: 14px; color: #64748b;">→ Guided protocols • Crisis resources • Peer connection</div>
+            </div>
+            
+            <!-- Recovery Toolkit -->
+            <div class="card feature-card">
+                <h3 style="font-size: 26px; margin: 0 0 12px;">Recovery Toolkit</h3>
+                <p style="color: #94a3b8; margin: 0 0 20px;">Save voice notes, quotes, photos, songs, and reasons to stay — all private on your device.</p>
+                <div style="font-size: 14px; color: #64748b;">→ Voice notes • Comfort items • Personal reasons</div>
+            </div>
+            
+            <!-- Emotional GPS -->
+            <div class="card feature-card">
+                <h3 style="font-size: 26px; margin: 0 0 12px;">Emotional GPS</h3>
+                <p style="color: #94a3b8; margin: 0 0 20px;">See patterns in your mood, stress, and sleep. Understand what affects you most.</p>
+                <div style="font-size: 14px; color: #64748b;">→ Weekly insights • Pattern detection • Personalized tips</div>
+            </div>
+            
+            <!-- Topic Matching -->
+            <div class="card feature-card">
+                <h3 style="font-size: 26px; margin: 0 0 12px;">Topic-Based Matching</h3>
+                <p style="color: #94a3b8; margin: 0 0 20px;">Match with people who are going through the exact same thing (breakup, grief, ADHD, etc.).</p>
+                <div style="font-size: 14px; color: #64748b;">→ 13 specific topics • Better connection • Real understanding</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Safety -->
+    <div id="safety" class="section" style="background: #12151b;">
+        <div class="container">
+            <div style="max-width: 620px; margin: 0 auto; text-align: center;">
+                <div style="width: 64px; height: 64px; background: rgba(74,222,128,0.1); border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
+                    <span style="font-size: 32px;">🛡️</span>
+                </div>
+                <h2 class="section-title" style="margin-bottom: 16px;">Your safety comes first</h2>
+                <p style="font-size: 20px; color: #94a3b8; margin-bottom: 32px;">This is peer support only — not therapy or crisis counseling.</p>
+                
+                <div class="card" style="text-align: left; max-width: 420px; margin: 0 auto;">
+                    <p style="font-weight: 600; margin-bottom: 16px;">If you're in crisis or having thoughts of self-harm:</p>
+                    <div style="display: flex; flex-direction: column; gap: 10px; font-size: 15px;">
+                        <div>• Call or text <strong style="font-family: monospace;">988</strong> (US)</div>
+                        <div>• Visit <strong>iasp.info</strong> for local resources</div>
+                        <div>• Talk to a trusted friend or family member</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="padding: 60px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.08);">
+        <div class="container">
+            <p style="color: #64748b; font-size: 15px;">SoulSpace is a free peer support platform. We are not mental health professionals.</p>
+        </div>
+    </div>
+
+</body>
+</html>
